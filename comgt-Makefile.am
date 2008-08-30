@@ -1,0 +1,6 @@
+AM_CPPFLAGS = -DSCRIPTDIR=\"${pkgdatadir}/\"
+
+bin_PROGRAMS = comgt
+comgt_SOURCES = comgt.c
+man_MANS = comgt.1 sigmon.1
+pkgdata_DATA = scripts/*

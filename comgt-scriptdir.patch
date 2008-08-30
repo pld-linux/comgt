@@ -1,0 +1,32 @@
+--- o.comgt.0.32/comgt.c	2006-10-20 16:49:46.000000000 +0200
++++ n.comgt.0.32/comgt.c	2008-08-30 22:20:16.000000000 +0200
+@@ -54,6 +54,9 @@
+ #define BOOL unsigned char
+ #define NVARS 286       /* a-z, a0-z9 == 26*11 */
+ 
++#ifndef SCRIPTDIR
++#define SCRIPTDIR "/usr/local/share/comgt/"
++#endif
+ 
+ extern char *optarg;
+ extern int optind, opterr;
+@@ -1642,7 +1645,7 @@
+       //scriptfile[0] = '\0';
+     }
+     if((fp=fopen(scriptfile,"r"))==NULL) {
+-		strcpy(scriptfilepath,"/etc/comgt/");
++		strcpy(scriptfilepath,SCRIPTDIR);
+ 		strcat(scriptfilepath,scriptfile);
+ 		if((fp=fopen(scriptfilepath,"r"))==NULL) {
+       		sprintf(msg,"Could not open scriptfile \"%s\".\n",scriptfile);
+--- o.comgt.0.32/comgt.1	2006-10-20 16:49:46.000000000 +0200
++++ n.comgt.0.32/comgt.1	2008-08-30 23:21:13.000000000 +0200
+@@ -115,7 +115,7 @@
+ and will work for serially connected modems, built-in modems, PCMCIA modems
+ as well as the GlobeTrotter GPRS and the Vodafone 3G/GPRS datacards.
+ .
+-There is a search priority order for scripts - 1)internal, 2)working directory, 3)/etc/comgt
++There is a search priority order for scripts - 1)internal, 2)working directory, 3)/usr/share/comgt
+ .PP
+ .SS Built-in scripts
+ 
