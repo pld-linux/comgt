@@ -24,7 +24,7 @@ GSM) data devices within the Linux environment.
 
 %prep
 %setup -q -n %{name}.%{version}
-%patch0 -p1
+%patch -P0 -p1
 cp -f %{SOURCE1} configure.ac
 cp -f %{SOURCE2} Makefile.am 
 
